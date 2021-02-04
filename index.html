@@ -4,124 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <script type="text/javascript">
-        function validate(){
-            var unam=document.getElementById("uname");
-            var pwor=document.getElementById("pword");
-            var pword=document.getElementById("pwords");
-            var emai=document.getElementById("email");
-            var mo=document.getElementById("mob");
-        
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-            if(unam.value.trim()==""){
-                unam.style.border="solid 2px red";
-                document.getElementById("uname1").innerHTML="**Username cannot be blank";
-                return false;
-            }
-
-            if(unam.value.length <= 2 || unam.value.length > 20 ){
-                unam.style.border="solid 2px red";
-                document.getElementById("uname1").innerHTML="**Username length should be between 3 and 20";
-                return false;
-            }
-
-            if(!isNaN(unam.value)){
-                unam.style.border="solid 2px red";
-                document.getElementById("uname1").innerHTML="**Username should only contain character";
-                return false;
-            }
-
-            if(pwor.value.trim()==""){
-                pwor.style.border="solid 2px red";
-                document.getElementById("pword1").innerHTML="**Password cannot be blank";
-                return false;
-            }
-
-            if(pwor.value.length <= 5 || pwor.value.length > 20 ){
-                pwor.style.border="solid 2px red";
-                document.getElementById("pword1").innerHTML="**Username length should be between 5 and 20";
-                return false;
-            }
-
-            if(pword.value.trim()==""){
-                pword.style.border="solid 2px red";
-                document.getElementById("pwords1").innerHTML="**Password cannot be blank";
-                return false;
-            }
-
-            if(pwor.value != pword.value){
-                pword.style.border="solid 2px red";
-                document.getElementById("pwords1").innerHTML="**Passwords are not matching";
-                return false;
-            }
-
-            if(emai.value.trim()==""){
-                emai.style.border="solid 2px red";
-                document.getElementById("email1").innerHTML="**Email cannot be blank";
-                return false;
-            }
-
-            if(emai.value.indexOf('@') <= 0){
-                emai.style.border="solid 2px red";
-                document.getElementById("email1").innerHTML="**@ can't come at beginning";
-                return false;
-            }
-
-            if((emai.value.charAt(emai.value.length-4)!='.') &&  (emai.value.charAt(emai.value.length-3)!='.')){
-                emai.style.border="solid 2px red";
-                document.getElementById("email1").innerHTML="** email not valid";
-                return false;
-            }
-
-            if(mo.value.trim()==""){
-                mo.style.border="solid 2px red";
-                document.getElementById("mob1").innerHTML="**Mobile No. cannot be blank";
-                return false;
-            }
-
-            if(isNaN(mo.value)){
-                mo.style.border="solid 2px red";
-                document.getElementById("mob1").innerHTML="**Only Numbers allowed";
-                return false;
-            }
-
-            if(mo.value.length != 10){
-                mo.style.border="solid 2px red";
-                document.getElementById("mob1").innerHTML="**Mobile No. should contain 10 digits";
-                return false;
-            }
-            
-        }
-    </script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js" type="text/javascript"> </script>
 </head>
 <body>
-    <form onsubmit="return validate()" action="msg.html">
-        <fieldset>
-            <legend>Sign Up</legend>
-            <label for="uname">Username:</label><br>
-            <input type="text" id="uname" name="uname" ><br>
-            <span id="uname1" style="color: red;"></span><br>
-            
-            <label for="pword">Password:</label><br>
-            <input type="password" id="pword" name="pword"><br>
-            <span id="pword1" style="color: red;"></span><br>
-            
-            <label for="pwords">Confirm Password:</label><br>
-            <input type="password" id="pwords" name="pwords"><br>
-            <span id="pwords1" style="color: red;"></span><br>
-            
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email" ><br>
-            <span id="email1" style="color: red;"></span><br>
-            
-            <label for="mob">Mobile No.:</label><br>
-            <input type="text" id="mob" name="mob" ><br>
-            <span id="mob1" style="color: red;"></span><br>
-            
-            <input type="submit" value="Submit">
-        </fieldset>
-    </form>
+    <div class="container"><br>
+        <h2 class="display-4 text-success text-center font-weight-bold">Sign Up</h2><br>
+        <div class="col-lg-4 m-auto">
+            <form onsubmit="return validate()" action="msg.html" class="bg-light">
+                <div class="form-group">
+                    <label for="uname">Username:</label>
+                    <input type="text" class="form-control" id="uname" name="uname" placeholder="Username">
+                    <span id="uname1" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="pword">Password:</label>
+                    <input type="password" class="form-control" id="pword" name="pword" placeholder="Password">
+                    <span id="pword1" style="color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="pwords">Confirm Password:</label>
+                    <input type="password" class="form-control" id="pwords" name="pwords" placeholder="Confirm Password">
+                    <span id="pwords1" style="color: red;"></span>
+                </div>    
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                    <span id="email1" style="color: red;"></span>
+                </div>    
+                <div class="form-group">
+                    <label for="mob">Mobile No.:</label>
+                    <input type="text" class="form-control" id="mob" name="mob" placeholder="Mobile No.">
+                    <span id="mob1" style="color: red;"></span>
+                </div>
+                <div class="text-center">
+                    <input class="btn btn-success" type="submit" value="Submit"><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
